@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortar man calculator</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQejVJI_xC8IFjsLRQmQxWAouoh63PFPanW4A&s" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Добавлено для правильного позиционирования кнопок */
+        }
+        .container {
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .map-info {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 12px;
+        }
+        /* Стили для кнопки "Donate" */
+        .donate-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Кнопка перекидывания на сайт для пожертвований -->
+<a href="https://new.donatepay.ru/@892216"><img src="donate.png" alt="Donate" class="donate-button"></a>
+
+<!-- Кнопка переключения языка -->
+<a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/White-blue-white_flag.svg/1200px-White-blue-white_flag.svg.png" alt="RU" style="position: absolute; top: 0; left: 0; width: 60px; height: 40px; cursor: pointer;"></a>
+
+<div class="container">
+    <h2>Mortar man</h2>
+    <h2>calculator PUBG</h2>
+    <label for="catetA">Value 1:</label>
+    <input type="number" id="catetA" placeholder="">
+    
+    <label for="catetB">Value 2:</label>
+    <input type="number" id="catetB" placeholder="">
+    
+    <button onclick="calculateHypotenuse()">Calculate</button>
+    
+    <div class="result" id="result">Shooting range: </div>
+</div>
+
+<div class="map-info">Size of one square on the map: 100 meters</div>
+
+<script>
+    function calculateHypotenuse() {
+        let a = parseFloat(document.getElementById('catetA').value);
+        let b = parseFloat(document.getElementById('catetB').value);
+        
+        if (isNaN(a) || isNaN(b)) {
+            document.getElementById('result').textContent = 'Shooting range:';
+        } else {
+            let c = Math.sqrt(a * a + b * b);
+            let roundedC = Math.round(c);
+            document.getElementById('result').textContent = 'Shooting range: ' + roundedC;
+        }
+    }
+</script>
+
+</body>
+</html>
